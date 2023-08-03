@@ -28,7 +28,7 @@ export class TdFormComponent {
   /*--------------------------------------------------------------------------
                               Two Way Data Binding
   --------------------------------------------------------------------------*/
-  @ViewChild('contactForm') twowaydataform!: NgForm;
+  @ViewChild('twowaydataform') twowaydataform!: NgForm;
   /*----- Bydefault Fill the Data in Form -----*/
   name: string = 'haresh';
   messages: string = 'Messages by Google is the official Google app for messaging over Rich Communication Services';
@@ -42,7 +42,19 @@ export class TdFormComponent {
   }
 
 
+  /*--------------------------------------------------------------------------
+                              ngModel Group Object
+  --------------------------------------------------------------------------*/
+  @ViewChild('grouponjectform') grouponjectform!: NgForm;
+  groupobjectsubmit() {
+    console.log(this.grouponjectform.value);
+  }
+
 }
+
+
+
+
 
 
 /*----- one way data binding -----*/
