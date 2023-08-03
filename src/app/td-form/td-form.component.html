@@ -128,4 +128,54 @@
 </div>
 
 
-<!-- https://www.youtube.com/watch?v=NHUdakIC4u8&list=PL_euSNU_eLbc2_736gSJCKFcpb2hKX2Lr&index=6 -->
+
+<!---------------------------------------------------------------------------------------------------------------------------
+                                                    Set-Value & Patch-Value
+---------------------------------------------------------------------------------------------------------------------------->
+<div class="container my-5">
+    <h3 class="text-center my-3">One Way Data-Binding</h3>
+    <form #setpetchvalueform="ngForm" (ngSubmit)="setpatchvaluesubmit()">
+        <!---------- First Name ---------->
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Enter First Name" name="firstName" ngModel required #firstName="ngModel">
+            <span class="help-text" *ngIf="firstName.invalid && firstName.touched">Please Enter Valid UserName</span>
+        </div>
+
+        <div ngModelGroup="userdata" #userdata="ngModelGroup">
+            <!---------- UserName ---------->
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Enter UserName" name="username" ngModel required #username="ngModel">
+                <span class="help-text" *ngIf="username.invalid && username.touched">Please Enter Valid UserName</span>
+            </div>
+            <!---------- Password ---------->
+            <div class="mb-3">
+                <input type="password" class="form-control" placeholder="Enter Password" name="password" ngModel required #pass="ngModel">
+                <span class="help-text" *ngIf="pass.invalid && pass.touched">Please Enter Valid Password</span>
+            </div>
+        </div>
+        <div class="help-text" *ngIf="userdata.invalid && userdata.touched">User Data is Invalid</div><br>
+
+        <!---------- Email ---------->
+        <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Enter Email" name="emails" ngModel #emails="ngModel" required>
+            <span class="help-text" *ngIf="!emails.valid && emails.touched">Please Enter Valid Email</span>
+        </div>
+        <!---------- Merried ---------->
+        <div class="form-check my-4">
+            <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="isMarried" ngModel required #merrieds="ngModel">
+            <label class="form-check-label" for="flexCheckDefault">Merried</label>
+            <span class="help-text" *ngIf="merrieds.invalid && merrieds.touched">Please Check the Box</span>
+        </div>
+        <!---------- Message ---------->
+        <div class="mb-3">
+            <textarea class="form-control" rows="3" name="message" placeholder="Enter the Message" ngModel required #message="ngModel"></textarea>
+            <span class="help-text" *ngIf="message.invalid && message.touched">Please Write the Message</span>
+        </div>
+        <!-------- Submit Button --------->
+        <button type="submit" class="btn btn-sm btn-success" [disabled]="!grouponjectform.valid">Submit</button>
+        <button class="btn btn-sm btn-info mx-3" (click)="fillValues()">Fill Values</button>
+    </form>
+</div>
+
+
+<!-- https://www.youtube.com/watch?v=OFq8nN3WF7M&list=PL_euSNU_eLbc2_736gSJCKFcpb2hKX2Lr&index=8 -->

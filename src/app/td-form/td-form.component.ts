@@ -50,7 +50,33 @@ export class TdFormComponent {
     console.log(this.grouponjectform.value);
   }
 
+
+  /*--------------------------------------------------------------------------
+                            Set-Value & Patch-Value
+  --------------------------------------------------------------------------*/
+  @ViewChild('setpetchvalueform') setpetchvalueform!: NgForm;
+  setpatchvaluesubmit() {
+    console.log(this.setpetchvalueform.value);
+  }
+  fillValues() {
+    /*------ set value ------*/
+    this.setpetchvalueform.form.setValue({
+      firstName: 'Hitesh Thumar',
+      userdata: {
+        username: 'hits@5989kl',
+        password: 'hccs564@cvevi59696'
+      },
+      emails: 'hitesh.t@gurukul.org',
+      isMarried: true,
+      message: 'very Android phone has Google applications, including the Messages app.'
+    });
+
+    /*------ patch value ------*/
+    this.setpetchvalueform.form.patchValue(this.setpetchvalueform);
+  }
+
 }
+
 
 
 
