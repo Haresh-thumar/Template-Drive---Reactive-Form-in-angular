@@ -1,0 +1,83 @@
+<!---------------------------------------------------------------------------------------------------------------------------
+                                                    One Way Data-Binding
+---------------------------------------------------------------------------------------------------------------------------->
+<div class="container mt-5">
+    <h3 class="text-center my-3">One Way Data-Binding</h3>
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+        <!---------- First Name ---------->
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="First Name" name="firstname" ngModel required #fname="ngModel">
+            <span class="help-text" *ngIf="fname.invalid && fname.touched">Please Enter Valid First Name</span>
+        </div>
+        <!---------- Last Name ---------->
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Last Name" name="lastname" ngModel required #lname="ngModel">
+            <span class="help-text" *ngIf="lname.invalid && lname.touched">Please Enter Valid Last Name</span>
+        </div>
+        <!---------- Email ---------->
+        <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Email" name="email" (input)="checkdata()" ngModel #email="ngModel" required>
+            <span class="help-text" *ngIf="!email.valid && email.touched">Please Enter Valid Email</span>
+        </div>
+        <!---------- Gender ---------->
+        <label class="form-check-label"> Gender </label>
+        <div class="form-check">
+            <label class="form-check-label"> Male </label>
+            <input class="form-check-input" type="radio" value="male" name="gender" ngModel required>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label"> Female </label>
+            <input class="form-check-input" type="radio" value="female" name="gender" ngModel required>
+        </div>
+        <!---------- Merried ---------->
+        <div class="form-check my-4">
+            <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="isMarried" ngModel required #merried="ngModel">
+            <label class="form-check-label" for="flexCheckDefault">Merried</label>
+            <span class="help-text" *ngIf="merried.invalid && merried.touched">Please Check the Box</span>
+        </div>
+        <!---------- Message ---------->
+        <div class="mb-3">
+            <textarea class="form-control" rows="3" name="message" placeholder="Enter the Message" ngModel required #message="ngModel"></textarea>
+            <span class="help-text" *ngIf="message.invalid && message.touched">Please Write the Message</span>
+        </div>
+        <!---------- Country ---------->
+        <select class="form-select my-3" name="country" ngModel #country="ngModel">
+            <option disabled value="">-- select value --</option>
+            <option [value]="c.name" *ngFor="let c of countryList">{{c.name}}</option>
+        </select>
+        <span class="help-text" *ngIf="country.invalid && country.touched">Please Write the Message</span>
+
+        <button type="submit" class="btn btn-success" [disabled]="!contactForm.valid">Submit</button>
+    </form>
+</div>
+
+
+<!---------------------------------------------------------------------------------------------------------------------------
+                                                    Two Way Data-Binding
+---------------------------------------------------------------------------------------------------------------------------->
+<div class="container mt-5">
+    <h3 class="text-center my-3">Two Way Data-Binding</h3>
+    <form #twowaydataform="ngForm" (ngSubmit)="onSubmitdata()">
+        <!---------- First Name ---------->
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="First Name" name="firstname" [(ngModel)]="name" required #fname="ngModel">
+            <span class="help-text" *ngIf="!fname.valid && fname.touched">Please Enter Valid First Name</span>
+        </div>
+        <!---------- Message ---------->
+        <div class="mb-3">
+            <textarea class="form-control" rows="3" name="message" placeholder="Enter the Message" [(ngModel)]="messages" required #message="ngModel"></textarea>
+            <span class="help-text" *ngIf="!message.valid && message.touched">Please Write the Message</span>
+        </div>
+        <!---------- Country ---------->
+        <select class="form-select my-3" name="country" [(ngModel)]="gender" #country="ngModel">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <span class="help-text" *ngIf="!country.valid && country.touched">Please Write the Message</span>
+
+        <button type="submit" class="btn btn-success" [disabled]="!twowaydataform.valid">Submit</button>
+    </form>
+</div>
+
+
+<!-- https://www.youtube.com/watch?v=Legf41btQnI&list=PL_euSNU_eLbc2_736gSJCKFcpb2hKX2Lr&index=5 -->
