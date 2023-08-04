@@ -6,17 +6,20 @@
     <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
         <!---------- First Name ---------->
         <div class="mb-3">
-            <input type="text" class="form-control" placeholder="First Name" name="firstname" ngModel required #fname="ngModel">
+            <input type="text" class="form-control" placeholder="First Name" name="firstname" ngModel required
+                #fname="ngModel">
             <span class="help-text" *ngIf="fname.invalid && fname.touched">Please Enter Valid First Name</span>
         </div>
         <!---------- Last Name ---------->
         <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Last Name" name="lastname" ngModel required #lname="ngModel">
+            <input type="text" class="form-control" placeholder="Last Name" name="lastname" ngModel required
+                #lname="ngModel">
             <span class="help-text" *ngIf="lname.invalid && lname.touched">Please Enter Valid Last Name</span>
         </div>
         <!---------- Email ---------->
         <div class="mb-3">
-            <input type="email" class="form-control" placeholder="Email" name="email" (input)="checkdata()" ngModel #email="ngModel" required>
+            <input type="email" class="form-control" placeholder="Email" name="email" (input)="checkdata()" ngModel
+                #email="ngModel" required>
             <span class="help-text" *ngIf="!email.valid && email.touched">Please Enter Valid Email</span>
         </div>
         <!---------- Gender ---------->
@@ -31,13 +34,15 @@
         </div>
         <!---------- Merried ---------->
         <div class="form-check my-4">
-            <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="isMarried" ngModel required #merried="ngModel">
+            <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="isMarried" ngModel required
+                #merried="ngModel">
             <label class="form-check-label" for="flexCheckDefault">Merried</label>
             <span class="help-text" *ngIf="merried.invalid && merried.touched">Please Check the Box</span>
         </div>
         <!---------- Message ---------->
         <div class="mb-3">
-            <textarea class="form-control" rows="3" name="message" placeholder="Enter the Message" ngModel required #message="ngModel"></textarea>
+            <textarea class="form-control" rows="3" name="message" placeholder="Enter the Message" ngModel required
+                #message="ngModel"></textarea>
             <span class="help-text" *ngIf="message.invalid && message.touched">Please Write the Message</span>
         </div>
         <!---------- Country ---------->
@@ -50,8 +55,6 @@
         <button type="submit" class="btn btn-success" [disabled]="!contactForm.valid">Submit</button>
     </form>
 </div>
-
-
 <!---------------------------------------------------------------------------------------------------------------------------
                                                     Two Way Data-Binding
 ---------------------------------------------------------------------------------------------------------------------------->
@@ -60,12 +63,14 @@
     <form #twowaydataform="ngForm" (ngSubmit)="onSubmitdata()">
         <!---------- First Name ---------->
         <div class="mb-3">
-            <input type="text" class="form-control" placeholder="First Name" name="firstname" [(ngModel)]="name" required #fname="ngModel">
+            <input type="text" class="form-control" placeholder="First Name" name="firstname" [(ngModel)]="name"
+                required #fname="ngModel">
             <span class="help-text" *ngIf="!fname.valid && fname.touched">Please Enter Valid First Name</span>
         </div>
         <!---------- Message ---------->
         <div class="mb-3">
-            <textarea class="form-control" rows="3" name="message" placeholder="Enter the Message" [(ngModel)]="messages" required #message="ngModel"></textarea>
+            <textarea class="form-control" rows="3" name="message" placeholder="Enter the Message"
+                [(ngModel)]="messages" required #message="ngModel"></textarea>
             <span class="help-text" *ngIf="!message.valid && message.touched">Please Write the Message</span>
         </div>
         <!---------- Country ---------->
@@ -78,8 +83,6 @@
         <button type="submit" class="btn btn-success" [disabled]="!twowaydataform.valid">Submit</button>
     </form>
 </div>
-
-
 <!---------------------------------------------------------------------------------------------------------------------------
                                                     ngModel Group Object
 ---------------------------------------------------------------------------------------------------------------------------->
@@ -88,47 +91,48 @@
     <form #grouponjectform="ngForm" (ngSubmit)="groupobjectsubmit()">
         <!---------- First Name ---------->
         <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Enter First Name" name="fName" ngModel required #fName="ngModel">
+            <input type="text" class="form-control" placeholder="Enter First Name" name="fName" ngModel required
+                #fName="ngModel">
             <span class="help-text" *ngIf="fName.invalid && fName.touched">Please Enter Valid UserName</span>
         </div>
-
         <div ngModelGroup="userdata" #userdata="ngModelGroup">
             <!---------- UserName ---------->
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Enter UserName" name="username" ngModel required #username="ngModel">
+                <input type="text" class="form-control" placeholder="Enter UserName" name="username" ngModel required
+                    #username="ngModel">
                 <span class="help-text" *ngIf="username.invalid && username.touched">Please Enter Valid UserName</span>
             </div>
             <!---------- Password ---------->
             <div class="mb-3">
-                <input type="password" class="form-control" placeholder="Enter Password" name="password" ngModel required #pass="ngModel">
+                <input type="password" class="form-control" placeholder="Enter Password" name="password" ngModel
+                    required #pass="ngModel">
                 <span class="help-text" *ngIf="pass.invalid && pass.touched">Please Enter Valid Password</span>
             </div>
         </div>
         <div class="help-text" *ngIf="userdata.invalid && userdata.touched">User Data is Invalid</div><br>
-
         <!---------- Email ---------->
         <div class="mb-3">
-            <input type="email" class="form-control" placeholder="Enter Email" name="emails" ngModel #emails="ngModel" required>
+            <input type="email" class="form-control" placeholder="Enter Email" name="emails" ngModel #emails="ngModel"
+                required>
             <span class="help-text" *ngIf="!emails.valid && emails.touched">Please Enter Valid Email</span>
         </div>
         <!---------- Merried ---------->
         <div class="form-check my-4">
-            <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="isMarried" ngModel required #merrieds="ngModel">
+            <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="isMarried" ngModel required
+                #merrieds="ngModel">
             <label class="form-check-label" for="flexCheckDefault">Merried</label>
             <span class="help-text" *ngIf="merrieds.invalid && merrieds.touched">Please Check the Box</span>
         </div>
         <!---------- Message ---------->
         <div class="mb-3">
-            <textarea class="form-control" rows="3" name="message" placeholder="Enter the Message" ngModel required #message="ngModel"></textarea>
+            <textarea class="form-control" rows="3" name="message" placeholder="Enter the Message" ngModel required
+                #message="ngModel"></textarea>
             <span class="help-text" *ngIf="message.invalid && message.touched">Please Write the Message</span>
         </div>
         <!-------- Submit Button --------->
         <button type="submit" class="btn btn-success" [disabled]="!grouponjectform.valid">Submit</button>
     </form>
 </div>
-
-
-
 <!---------------------------------------------------------------------------------------------------------------------------
                                                     Set-Value & Patch-Value
 ---------------------------------------------------------------------------------------------------------------------------->
@@ -137,38 +141,42 @@
     <form #setpetchvalueform="ngForm" (ngSubmit)="setpatchvaluesubmit()">
         <!---------- First Name ---------->
         <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Enter First Name" name="firstName" ngModel required #firstName="ngModel">
+            <input type="text" class="form-control" placeholder="Enter First Name" name="firstName" ngModel required
+                #firstName="ngModel">
             <span class="help-text" *ngIf="firstName.invalid && firstName.touched">Please Enter Valid UserName</span>
         </div>
-
         <div ngModelGroup="userdata" #userdata="ngModelGroup">
             <!---------- UserName ---------->
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Enter UserName" name="username" ngModel required #username="ngModel">
+                <input type="text" class="form-control" placeholder="Enter UserName" name="username" ngModel required
+                    #username="ngModel">
                 <span class="help-text" *ngIf="username.invalid && username.touched">Please Enter Valid UserName</span>
             </div>
             <!---------- Password ---------->
             <div class="mb-3">
-                <input type="password" class="form-control" placeholder="Enter Password" name="password" ngModel required #pass="ngModel">
+                <input type="password" class="form-control" placeholder="Enter Password" name="password" ngModel
+                    required #pass="ngModel">
                 <span class="help-text" *ngIf="pass.invalid && pass.touched">Please Enter Valid Password</span>
             </div>
         </div>
         <div class="help-text" *ngIf="userdata.invalid && userdata.touched">User Data is Invalid</div><br>
-
         <!---------- Email ---------->
         <div class="mb-3">
-            <input type="email" class="form-control" placeholder="Enter Email" name="emails" ngModel #emails="ngModel" required>
+            <input type="email" class="form-control" placeholder="Enter Email" name="emails" ngModel #emails="ngModel"
+                required>
             <span class="help-text" *ngIf="!emails.valid && emails.touched">Please Enter Valid Email</span>
         </div>
         <!---------- Merried ---------->
         <div class="form-check my-4">
-            <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="isMarried" ngModel required #merrieds="ngModel">
+            <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="isMarried" ngModel required
+                #merrieds="ngModel">
             <label class="form-check-label" for="flexCheckDefault">Merried</label>
             <span class="help-text" *ngIf="merrieds.invalid && merrieds.touched">Please Check the Box</span>
         </div>
         <!---------- Message ---------->
         <div class="mb-3">
-            <textarea class="form-control" rows="3" name="message" placeholder="Enter the Message" ngModel required #message="ngModel"></textarea>
+            <textarea class="form-control" rows="3" name="message" placeholder="Enter the Message" ngModel required
+                #message="ngModel"></textarea>
             <span class="help-text" *ngIf="message.invalid && message.touched">Please Write the Message</span>
         </div>
         <!-------- Submit Button --------->
@@ -176,148 +184,84 @@
         <button class="btn btn-sm btn-info mx-3" (click)="fillValues()">Fill Values</button>
     </form>
 </div>
-
-
 <!---------------------------------------------------------------------------------------------------------------------------
                                             Show and hide validation error messages
 ---------------------------------------------------------------------------------------------------------------------------->
 <div class="container my-5">
     <h3 class="text-center my-3">Set-Value & Patch-Value</h3>
-    <form #showhideerrorform="ngForm" (ngSubmit)="showhideerrorsubmit()">
+    <form #showhideerrorform="ngForm" (ngSubmit)="showhideerrorsubmit();">
         <input type="text" class="form-control" required [(ngModel)]="nameModel" name="flname" #flname="ngModel">
         <div [hidden]="flname.valid || flname.pristine" class="alert alert-danger"> Name is required </div>
-
         <!-------- Submit Button --------->
         <button type="submit" class="btn btn-sm btn-success" [disabled]="!showhideerrorform.valid">Submit</button>
     </form>
 </div>
-
-
 <!---------------------------------------------------------------------------------------------------------------------------
                                             Displaying the Validation/Error messages
 ---------------------------------------------------------------------------------------------------------------------------->
 <div class="container my-5">
     <h3 class="text-center my-3">Displaying the Validation/Error messages</h3>
-    <!-- <form #contactForm="ngForm" (ngSubmit)="onSubmited()"> -->
-    <!------- Firstname ------->
-    <!-- <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Enter First Name" name="firstname" [(ngModel)]="contact['firstname']" #firstnames="ngModel" required minlength="10">
-            <span class="help-text" *ngIf="!firstnames.valid && firstnames.touched">Please Enter Valid Email</span>
-        </div> -->
-    <!-- <div>
-        <label for="firstname">First Name </label>
-        <input type="text" id="firstname" name="firstname" required minlength="10" #firstnames="ngModel" [(ngModel)]="contact.firstname">
-    </div> -->
-    <!-- <div *ngIf="!firstnames?.valid && (firstnames?.dirty || firstnames?.touched)" class="error">
-        <div *ngIf="firstnames.errors?.['required']">
-            First Name is required
+    <form #f="ngForm" (ngSubmit)="onSubmits()">
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" class="form-control" name="fullname" [(ngModel)]="form.fullname" required
+                #fullname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fullname.errors }" />
+            <div *ngIf="f.submitted && fullname.errors" class="invalid-feedback">
+                <div *ngIf="fullname.errors['required']">Fullname is required</div>
+            </div>
         </div>
-        <div *ngIf="firstname.errors?.['minlength']">
-            First Name Minimum Length is {{firstnames.errors.minlength?.requiredLength}}
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="6"
+                maxlength="20" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.errors }" />
+            <div *ngIf="f.submitted && username.errors" class="invalid-feedback">
+                <div *ngIf="username.errors['required']">Username is required</div>
+                <div *ngIf="username.errors['minlength']"> Username must be at least 6 characters </div>
+                <div *ngIf="username.errors['maxlength']"> Username must be at most 20 characters </div>
+            </div>
         </div>
-    </div> -->
-    <!------- Lastname ------->
-    <!-- <div>
-        <label for="lastname">Last Name </label>
-        <input type="text" id="lastname" name="lastname" required maxlength="15" #lastnames="ngModel" pattern="^[a-zA-Z]+$" [(ngModel)]="contact.lastname">
-    </div> -->
-    <!-- <div *ngIf="!lastnames?.valid && (lastnames?.dirty || lastnames?.touched)" class="error">
-        <div *ngIf="lastnames.errors?.['required']">
-            Last Name is required
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email
+                #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.errors }" />
+            <div *ngIf="f.submitted && email.errors" class="invalid-feedback">
+                <div *ngIf="email.errors['required']">Email is required</div>
+                <div *ngIf="email.errors['email']">Email is invalid</div>
+            </div>
         </div>
-        <div *ngIf="lastnames.errors?.['maxlength']">
-            Last Name Minimum Length is {{lastnames.errors.maxlength?.requiredLength}}
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required
+                minlength="6" maxlength="40" #password="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && password.errors }" />
+            <div *ngIf="f.submitted && password.errors" class="invalid-feedback">
+                <div *ngIf="password.errors['required']">Password is required</div>
+                <div *ngIf="password.errors['minlength']"> Password must be at least 6 characters </div>
+                <div *ngIf="password.errors['maxlength']"> Username must not exceed 40 characters </div>
+            </div>
         </div>
-        <div *ngIf="lastnames.errors?.['pattern']">
-            Only characters are allowed
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="form.confirmPassword"
+                required #confirmPassword="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.errors }" />
+            <div *ngIf="f.submitted && confirmPassword.errors" class="invalid-feedback">
+                <div *ngIf="confirmPassword.errors['required']"> Confirm Password is required </div>
+                <div *ngIf="confirmPassword.errors['matching']"> Confirm Password does not match </div>
+            </div>
         </div>
-    </div> -->
-    <!------- Email ------->
-    <!-- <div>
-        <label for="email">email </label>
-        <input type="text" id="email" name="email" required email #emails="ngModel" [(ngModel)]="contact.email">
-    </div> -->
-    <!-- <div *ngIf="!emails?.valid && (emails?.dirty || emails?.touched)" class="error">
-        <div *ngIf="emails.errors['required']">
-            Email is required
+        <div class="form-group form-check">
+            <input type="checkbox" lass="form-control" name="acceptTerms" [(ngModel)]="form.acceptTerms"
+                class="form-check-input" required #acceptTerms="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && acceptTerms.errors }" />
+            <label for="acceptTerms" class="form-check-label"> I have read and agree to the Terms </label>
+            <div *ngIf="f.submitted && acceptTerms.errors" class="invalid-feedback"> Accept Terms is required </div>
         </div>
-        <div *ngIf="emails.errors['email']">
-            Invalid Email Address
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="button" (click)="onReset()" class="btn btn-warning float-right"> Reset </button>
         </div>
-    </div> -->
-    <!------- Gender ------->
-    <!-- <div>
-        <label for="gender">Gender </label>
-        <input type="radio" value="male" id="gender" name="gender" #genders="ngModel" required [(ngModel)]="contact.gender">
-        Male
-        <input type="radio" value="female" id="gender" name="gender" #genders="ngModel" required [(ngModel)]="contact.gender"> Female
-    </div> -->
-    <!-- <div *ngIf="!genders?.valid && (genders?.dirty || genders?.touched)" class="error">
-        <div *ngIf="genders.errors['required']">
-            Gender is required
-        </div>
-    </div> -->
-
-    <!------- Accept T&C ------->
-    <!-- <div>
-        <label for="isToc">Accept T&C</label>
-        <input type="checkbox" id="isToc" name="isToc" required #isToc="ngModel" [(ngModel)]="contact.isToc">
-    </div> -->
-    <!-- <div *ngIf="!isToc?.valid && (isToc?.dirty || isToc?.touched)" class="error">
-        <div *ngIf="isToc.errors['required']">
-            Please accept the T&C
-        </div>
-    </div> -->
-    <!------- Submit Button ------->
-    <!-- <div>
-        <button type="submit" [disabled]="!contactForm.valid">Submit</button>
-    </div>
-
-    <p>{{contactForm.valid}} </p> -->
-
-    <!-- </form> -->
-
-    <!-- <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
-
-        <p>
-            <label for="firstname">First Name </label>
-            <input type="text" id="firstname" name="firstname" [(ngModel)]="contact.firstname">
-        </p>
-
-        <p>
-            <label for="lastname">Last Name </label>
-            <input type="text" id="lastname" name="lastname" [(ngModel)]="contact.lastname">
-        </p>
-
-        <p>
-            <label for="email">email </label>
-            <input type="text" id="email" name="email" [(ngModel)]="contact.email">
-        </p>
-
-        <p>
-            <label for="gender">Geneder </label>
-            <input type="radio" value="male" id="gender" name="gender" [(ngModel)]="contact.gender"> Male
-            <input type="radio" value="female" id="gender" name="gender" [(ngModel)]="contact.gender"> Female
-        </p>
-
-        <p>
-            <label for="isToc">Accept TOC</label>
-            <input type="checkbox" id="isToc" name="isToc" [(ngModel)]="contact.isToc">
-        </p>
-
-        <p>
-            <button type="submit">Submit</button>
-        </p>
-    </form> -->
-
+    </form>
 </div>
-
-
-
-
-
-
-
 <!-- https://www.youtube.com/watch?v=OFq8nN3WF7M&list=PL_euSNU_eLbc2_736gSJCKFcpb2hKX2Lr&index=8 -->
-
 <!-- https://www.tektutorialshub.com/angular/formcontrol-in-angular/ -->

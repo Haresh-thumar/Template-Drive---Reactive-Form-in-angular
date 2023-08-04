@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-td-form',
@@ -37,7 +37,7 @@ export class TdFormComponent {
     if (this.twowaydataform.valid) {
       console.log(this.twowaydataform);
     } else {
-      alert('please fill the proper data.')
+      alert('please fill the proper data.');
     }
   }
 
@@ -90,17 +90,24 @@ export class TdFormComponent {
   /*--------------------------------------------------------------------------
                   Show and hide validation error messages
   --------------------------------------------------------------------------*/
-  @ViewChild('contactForm') contactForm!: NgForm;
-  contact?: contact = {
-    firstname: "",
-    lastname: "",
-    email: "",
-    gender: "",
-    isToc: true,
+  @ViewChild('f') f?: NgForm;
+  form = {
+    fullname: '',
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    acceptTerms: false,
   };
-  onSubmited() {
-    console.log(this.contactForm.value);
+  onSubmits(): void {
+    console.log(JSON.stringify(this.form, null, 2));
   }
+  onReset(): void {
+    // this.f?.reset();
+    this.f?.resetForm();
+  }
+
+
 
 }
 
@@ -127,4 +134,18 @@ export class contact {
   gender!: string;
   isToc!: boolean;
   email!: string;
-} 
+}
+
+export class contacts {
+  firstname!: string;
+  lastname!: string;
+  email!: string;
+  gender!: string;
+  isMarried!: boolean;
+  country!: string;
+  address!: {
+    city: string;
+    street: string;
+    pincode: string;
+  };
+}

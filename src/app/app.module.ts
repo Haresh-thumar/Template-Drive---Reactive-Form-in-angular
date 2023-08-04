@@ -4,16 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TdFormComponent } from './td-form/td-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TdfExampleComponent } from './tdf-example/tdf-example.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TdFormComponent
+    TdFormComponent,
+    TdfExampleComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
