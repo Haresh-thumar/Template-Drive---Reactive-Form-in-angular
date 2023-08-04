@@ -75,6 +75,33 @@ export class TdFormComponent {
     this.setpetchvalueform.form.patchValue(this.setpetchvalueform);
   }
 
+
+
+  /*--------------------------------------------------------------------------
+                  Show and hide validation error messages
+  --------------------------------------------------------------------------*/
+  @ViewChild('showhideerrorform') showhideerrorform!: NgForm;
+  nameModel: string = '';
+  showhideerrorsubmit() {
+    console.log(this.showhideerrorform.value);
+  }
+
+
+  /*--------------------------------------------------------------------------
+                  Show and hide validation error messages
+  --------------------------------------------------------------------------*/
+  @ViewChild('contactForm') contactForm!: NgForm;
+  contact?: contact = {
+    firstname: "",
+    lastname: "",
+    email: "",
+    gender: "",
+    isToc: true,
+  };
+  onSubmited() {
+    console.log(this.contactForm.value);
+  }
+
 }
 
 
@@ -92,3 +119,12 @@ export class country {
     this.name = name;
   }
 }
+
+/*----- Show and hide validation error messages -----*/
+export class contact {
+  firstname!: string;
+  lastname!: string;
+  gender!: string;
+  isToc!: boolean;
+  email!: string;
+} 

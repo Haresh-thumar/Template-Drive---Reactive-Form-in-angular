@@ -84,7 +84,7 @@
                                                     ngModel Group Object
 ---------------------------------------------------------------------------------------------------------------------------->
 <div class="container my-5">
-    <h3 class="text-center my-3">One Way Data-Binding</h3>
+    <h3 class="text-center my-3">ngModel Group Object</h3>
     <form #grouponjectform="ngForm" (ngSubmit)="groupobjectsubmit()">
         <!---------- First Name ---------->
         <div class="mb-3">
@@ -133,7 +133,7 @@
                                                     Set-Value & Patch-Value
 ---------------------------------------------------------------------------------------------------------------------------->
 <div class="container my-5">
-    <h3 class="text-center my-3">One Way Data-Binding</h3>
+    <h3 class="text-center my-3">Set-Value & Patch-Value</h3>
     <form #setpetchvalueform="ngForm" (ngSubmit)="setpatchvaluesubmit()">
         <!---------- First Name ---------->
         <div class="mb-3">
@@ -178,4 +178,146 @@
 </div>
 
 
+<!---------------------------------------------------------------------------------------------------------------------------
+                                            Show and hide validation error messages
+---------------------------------------------------------------------------------------------------------------------------->
+<div class="container my-5">
+    <h3 class="text-center my-3">Set-Value & Patch-Value</h3>
+    <form #showhideerrorform="ngForm" (ngSubmit)="showhideerrorsubmit()">
+        <input type="text" class="form-control" required [(ngModel)]="nameModel" name="flname" #flname="ngModel">
+        <div [hidden]="flname.valid || flname.pristine" class="alert alert-danger"> Name is required </div>
+
+        <!-------- Submit Button --------->
+        <button type="submit" class="btn btn-sm btn-success" [disabled]="!showhideerrorform.valid">Submit</button>
+    </form>
+</div>
+
+
+<!---------------------------------------------------------------------------------------------------------------------------
+                                            Displaying the Validation/Error messages
+---------------------------------------------------------------------------------------------------------------------------->
+<div class="container my-5">
+    <h3 class="text-center my-3">Displaying the Validation/Error messages</h3>
+    <!-- <form #contactForm="ngForm" (ngSubmit)="onSubmited()"> -->
+    <!------- Firstname ------->
+    <!-- <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Enter First Name" name="firstname" [(ngModel)]="contact['firstname']" #firstnames="ngModel" required minlength="10">
+            <span class="help-text" *ngIf="!firstnames.valid && firstnames.touched">Please Enter Valid Email</span>
+        </div> -->
+    <!-- <div>
+        <label for="firstname">First Name </label>
+        <input type="text" id="firstname" name="firstname" required minlength="10" #firstnames="ngModel" [(ngModel)]="contact.firstname">
+    </div> -->
+    <!-- <div *ngIf="!firstnames?.valid && (firstnames?.dirty || firstnames?.touched)" class="error">
+        <div *ngIf="firstnames.errors?.['required']">
+            First Name is required
+        </div>
+        <div *ngIf="firstname.errors?.['minlength']">
+            First Name Minimum Length is {{firstnames.errors.minlength?.requiredLength}}
+        </div>
+    </div> -->
+    <!------- Lastname ------->
+    <!-- <div>
+        <label for="lastname">Last Name </label>
+        <input type="text" id="lastname" name="lastname" required maxlength="15" #lastnames="ngModel" pattern="^[a-zA-Z]+$" [(ngModel)]="contact.lastname">
+    </div> -->
+    <!-- <div *ngIf="!lastnames?.valid && (lastnames?.dirty || lastnames?.touched)" class="error">
+        <div *ngIf="lastnames.errors?.['required']">
+            Last Name is required
+        </div>
+        <div *ngIf="lastnames.errors?.['maxlength']">
+            Last Name Minimum Length is {{lastnames.errors.maxlength?.requiredLength}}
+        </div>
+        <div *ngIf="lastnames.errors?.['pattern']">
+            Only characters are allowed
+        </div>
+    </div> -->
+    <!------- Email ------->
+    <!-- <div>
+        <label for="email">email </label>
+        <input type="text" id="email" name="email" required email #emails="ngModel" [(ngModel)]="contact.email">
+    </div> -->
+    <!-- <div *ngIf="!emails?.valid && (emails?.dirty || emails?.touched)" class="error">
+        <div *ngIf="emails.errors['required']">
+            Email is required
+        </div>
+        <div *ngIf="emails.errors['email']">
+            Invalid Email Address
+        </div>
+    </div> -->
+    <!------- Gender ------->
+    <!-- <div>
+        <label for="gender">Gender </label>
+        <input type="radio" value="male" id="gender" name="gender" #genders="ngModel" required [(ngModel)]="contact.gender">
+        Male
+        <input type="radio" value="female" id="gender" name="gender" #genders="ngModel" required [(ngModel)]="contact.gender"> Female
+    </div> -->
+    <!-- <div *ngIf="!genders?.valid && (genders?.dirty || genders?.touched)" class="error">
+        <div *ngIf="genders.errors['required']">
+            Gender is required
+        </div>
+    </div> -->
+
+    <!------- Accept T&C ------->
+    <!-- <div>
+        <label for="isToc">Accept T&C</label>
+        <input type="checkbox" id="isToc" name="isToc" required #isToc="ngModel" [(ngModel)]="contact.isToc">
+    </div> -->
+    <!-- <div *ngIf="!isToc?.valid && (isToc?.dirty || isToc?.touched)" class="error">
+        <div *ngIf="isToc.errors['required']">
+            Please accept the T&C
+        </div>
+    </div> -->
+    <!------- Submit Button ------->
+    <!-- <div>
+        <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+    </div>
+
+    <p>{{contactForm.valid}} </p> -->
+
+    <!-- </form> -->
+
+    <!-- <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+
+        <p>
+            <label for="firstname">First Name </label>
+            <input type="text" id="firstname" name="firstname" [(ngModel)]="contact.firstname">
+        </p>
+
+        <p>
+            <label for="lastname">Last Name </label>
+            <input type="text" id="lastname" name="lastname" [(ngModel)]="contact.lastname">
+        </p>
+
+        <p>
+            <label for="email">email </label>
+            <input type="text" id="email" name="email" [(ngModel)]="contact.email">
+        </p>
+
+        <p>
+            <label for="gender">Geneder </label>
+            <input type="radio" value="male" id="gender" name="gender" [(ngModel)]="contact.gender"> Male
+            <input type="radio" value="female" id="gender" name="gender" [(ngModel)]="contact.gender"> Female
+        </p>
+
+        <p>
+            <label for="isToc">Accept TOC</label>
+            <input type="checkbox" id="isToc" name="isToc" [(ngModel)]="contact.isToc">
+        </p>
+
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form> -->
+
+</div>
+
+
+
+
+
+
+
 <!-- https://www.youtube.com/watch?v=OFq8nN3WF7M&list=PL_euSNU_eLbc2_736gSJCKFcpb2hKX2Lr&index=8 -->
+
+<!-- https://www.tektutorialshub.com/angular/formcontrol-in-angular/ -->
