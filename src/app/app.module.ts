@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TdfExampleComponent } from './tdf-example/tdf-example.component';
 import { TdfValuechangesComponent } from './tdf-valuechanges/tdf-valuechanges.component';
 import { TdfStatuschangesComponent } from './tdf-statuschanges/tdf-statuschanges.component';
+import { RfValuechangesComponent } from './rf-valuechanges/rf-valuechanges.component';
+import { RfStatuschangesComponent } from './rf-statuschanges/rf-statuschanges.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { TdfStatuschangesComponent } from './tdf-statuschanges/tdf-statuschanges
     TdFormComponent,
     TdfExampleComponent,
     TdfValuechangesComponent,
-    TdfStatuschangesComponent
+    TdfStatuschangesComponent,
+    RfValuechangesComponent,
+    RfStatuschangesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,48 @@
+<!---------------------------------------------------------------------------------------------------------------------------
+                                            ValueChanges in Reactive Forms
+---------------------------------------------------------------------------------------------------------------------------->
+<div class="container my-5">
+    <h3 class="text-center text-danger">ValueChanges in Reactive Form</h3>
+    <hr>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="firstname" class="form-label">Firstname</label>
+            <input type="text" class="form-control" id="firstname" placeholder="Enter Firstname" name="firstname" formControlName="firstname">
+        </div>
+        <div class="mb-3">
+            <label for="lastname" class="form-label">Lastname</label>
+            <input type="text" class="form-control" id="lastname" placeholder="Enter Firstname" name="lastname" formControlName="lastname">
+        </div>
+        <h4>FormGroup Address Group</h4>
+        <div formGroupName="address">
+            <div class="mb-3">
+                <label for="city" class="form-label">Lastname</label>
+                <input type="text" class="form-control" id="city" placeholder="Enter Firstname" name="lastname" formControlName="city">
+            </div>
+            <div class="mb-3">
+                <label for="city" class="form-label">Lastname</label>
+                <input type="text" class="form-control" id="city" placeholder="Enter Firstname" name="lastname" formControlName="street">
+            </div>
+            <div class="mb-3">
+                <label for="pincode" class="form-label">Lastname</label>
+                <input type="text" class="form-control" id="pincode" placeholder="Enter Firstname" name="lastname" formControlName="pincode">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-sm btn-success my-3">Submit</button>
+        <div class="my-3">
+            <button type="button" class="btn btn-sm btn-primary" (click)="setValue()">SetValue</button>
+            <button type="button" class="btn btn-sm btn-warning mx-3" (click)="setAddress()">Address</button>
+            <button type="button" class="btn btn-sm btn-info" (click)="setFirstname()">First Name</button>
+        </div>
+        <div class="my-3">
+            <button type="button" class="btn btn-sm btn-primary" (click)="withoutOnlySelf()">Without Only Self</button>
+            <button type="button" class="btn btn-sm btn-primary mx-3" (click)="withOnlySelf()">With Only Self</button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-sm btn-success" (click)="withoutEmitEvent()">Without EmitEvent</button>
+            <button type="button" class="btn btn-sm btn-success mx-3" (click)="withEmitEvent()">With EmitEvent</button>
+            <button type="button" class="btn btn-sm btn-danger" (click)="reset()">Reset</button>
+        </div>
+    </form>
+</div>

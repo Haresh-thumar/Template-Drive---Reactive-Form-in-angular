@@ -17,17 +17,17 @@ export class TdfStatuschangesComponent {
   ngOnInit() {
     setTimeout(() => {
       this.templateForm.control.get("firstname")?.statusChanges.subscribe((selectedValue: any) => {
-        console.log('firstname value changed');
+        console.log('firstname status changed');
         console.log(selectedValue);
       })
 
       this.templateForm.control.get("address")?.statusChanges.subscribe((selectedValue: any) => {
-        console.log('address changed');
+        console.log('address status changed');
         console.log(selectedValue);
       })
 
       this.templateForm.statusChanges?.subscribe((selectedValue: any) => {
-        console.log('form value changed');
+        console.log('form status changed');
         console.log(selectedValue);
       })
     });
