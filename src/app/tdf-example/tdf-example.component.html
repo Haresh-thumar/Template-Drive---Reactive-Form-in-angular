@@ -1,5 +1,5 @@
 <!---------------------------------------------------------------------------------------------------------------------------
-                                            Displaying the Validation/Error messages
+                                                Template Driven Form Example
 ---------------------------------------------------------------------------------------------------------------------------->
 <div class="container my-5">
     <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
@@ -17,8 +17,7 @@
         </p>
         <p>
             <label for="gender">Geneder </label>
-            <input type="radio" value="male" id="gender" name="gender" ngModel> Male <input type="radio" value="female"
-                id="gender" name="gender" ngModel> Female
+            <input type="radio" value="male" id="gender" name="gender" ngModel> Male <input type="radio" value="female" id="gender" name="gender" ngModel> Female
         </p>
         <p>
             <label for="isMarried">Married </label>
@@ -48,7 +47,6 @@
             <button type="submit">Submit</button>
         </p>
         <p>
-            <button type="button" (click)="changeCountry()">Change Country</button>
             <button type="button" (click)="setDefaults()">Set Defaults</button>
             <button type="button" (click)="patchValue()">Patch Value</button>
             <button type="button" (click)="changeAddress()">Change Address</button>

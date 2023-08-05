@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { TdFormComponent } from './td-form/td-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TdfExampleComponent } from './tdf-example/tdf-example.component';
+import { TdfValuechangesComponent } from './tdf-valuechanges/tdf-valuechanges.component';
+import { TdfStatuschangesComponent } from './tdf-statuschanges/tdf-statuschanges.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TdFormComponent,
-    TdfExampleComponent
+    TdfExampleComponent,
+    TdfValuechangesComponent,
+    TdfStatuschangesComponent
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,6 @@ export class TdfExampleComponent {
   contact!: contact;
 
   ngOnInit() {
-
     this.contact = {
       firstname: "Sachin",
       lastname: "Tendulkar",
@@ -33,11 +32,6 @@ export class TdfExampleComponent {
         pincode: "400050"
       }
     };
-
-    setTimeout(() => {
-      this.contactForm.setValue(this.contact);
-    });
-
   }
 
   onSubmit() {
@@ -48,19 +42,13 @@ export class TdfExampleComponent {
     this.contactForm.setValue(this.contact);
   }
 
-  changeCountry() {
-    this.contactForm.controls["country"].setValue("1");
-  }
-
   patchValue() {
     let obj = {
       firstname: "Rahul",
       lastname: "Dravid",
       email: "rahul@gmail.com",
     };
-
     this.contactForm.control.patchValue(obj);
-
   }
 
   changeAddress() {
@@ -71,7 +59,6 @@ export class TdfExampleComponent {
     };
     let address = this.contactForm.controls["address"] as FormGroup;
     address.patchValue(obj);
-
   }
 
   reset() {

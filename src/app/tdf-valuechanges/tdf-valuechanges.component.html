@@ -1,0 +1,61 @@
+<!---------------------------------------------------------------------------------------------------------------------------
+                                            ValueChanges in Template Driven Forms
+---------------------------------------------------------------------------------------------------------------------------->
+<div class="container my-5">
+    <h3 class="text-center text-danger">ValueChanges in Template-Driven Form</h3>
+    <hr>
+    <form #templateForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="111" class="form-label">Firstname</label>
+            <input type="text" class="form-control" id="111" placeholder="Enter Firstname" name="firstname" #fname="ngModel" ngModel>
+        </div>
+        <div class="mb-3">
+            <label for="222" class="form-label">Lastname</label>
+            <input type="text" class="form-control" id="222" placeholder="Enter Firstname" name="lastname" ngModel>
+        </div>
+        <h4>Address Group</h4>
+        <div ngModelGroup="address">
+            <div class="mb-3">
+                <label for="333" class="form-label">City</label>
+                <input type="text" class="form-control" id="333" placeholder="Enter Firstname" name="city" ngModel>
+            </div>
+            <div class="mb-3">
+                <label for="444" class="form-label">Street</label>
+                <input type="text" class="form-control" id="444" placeholder="Enter Firstname" name="street" ngModel>
+            </div>
+            <div class="mb-3">
+                <label for="555" class="form-label">Pincode</label>
+                <input type="text" class="form-control" id="555" placeholder="Enter Firstname" name="pincode" ngModel>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-sm btn-success my-3">Submit</button>
+        <div class="my-3">
+            <button type="button" class="btn btn-sm btn-primary" (click)="setValue()">SetValue</button>
+            <button type="button" class="btn btn-sm btn-warning mx-3" (click)="setAddress()">Address</button>
+            <button type="button" class="btn btn-sm btn-info" (click)="setFirstname()">First Name</button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-sm btn-success" (click)="withouEmitEvent()">Without EmitEvent</button>
+            <button type="button" class="btn btn-sm btn-success mx-3" (click)="withEmitEvent()">With EmitEvent</button>
+            <button type="button" class="btn btn-sm btn-danger" (click)="reset()">Reset</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="container mb-5">
+    <h3>Form Status</h3>
+    <b>status : </b>{{templateForm.status}} |
+    <b>valid : </b>{{templateForm.valid}} |
+    <b>invalid : </b>{{templateForm.invalid}} |
+    <b>touched : </b>{{templateForm.touched}} |
+    <b>untouched : </b>{{templateForm.untouched}} |
+    <b>pristine : </b>{{templateForm.pristine}} |
+    <b>dirty : </b>{{templateForm.dirty}} |
+    <b>disabled : </b>{{templateForm.disabled}} |
+    <b>enabled : </b>{{templateForm.enabled}}
+    <br><br>
+    <h3>Form Value</h3>
+    {{templateForm.value | json }}
+</div>
