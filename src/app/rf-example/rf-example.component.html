@@ -1,7 +1,7 @@
 <section class="container my-5">
     <h2 class="text-center">STUDENT REGISTRATION FORM</h2>
     <form [formGroup]="studentForm">
-        <div class="row my-5">
+        <div class="row mt-5">
             <!--------- Firstname -------->
             <div class="col-md-4">
                 <div class="mb-3">
@@ -46,7 +46,8 @@
             </div>
             <!--------- Licence No. -------->
             <div class="col-md-4">
-                <div class="mb-3">
+                <div class="mb-3"
+                    [ngClass]="studentForm.controls['licenceNo'].errors?.['required'] ? 'text-danger' : ''">
                     <label for="lcn" class="form-label">Licence No.</label>
                     <input type="text" class="form-control" id="lcn" formControlName="licenceNo">
                 </div>
@@ -57,10 +58,10 @@
                     <label for="country" class="form-label">Select Country</label>
                     <select class="form-select" id="country" formControlName="country">
                         <option value="">select country</option>
-                        <option value="1">USA</option>
-                        <option value="2">India</option>
-                        <option value="3">Srilanka</option>
-                        <option value="4">Other</option>
+                        <option value="USA">USA</option>
+                        <option value="India">India</option>
+                        <option value="Srilanka">Srilanka</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
             </div>
@@ -71,15 +72,17 @@
                     <input type="text" class="form-control" id="state" formControlName="state">
                 </div>
             </div>
-            <!--------- Identity Proof -------->
+        </div>
+        <!--------- Identity Proof -------->
+        <div class="row" *ngIf="studentForm.controls['country'].value === 'India'">
             <div class="col-md-4">
                 <div class="mb-3">
                     <label for="idproof" class="form-label">Identity Proof</label>
                     <select class="form-select" id="idproof" formControlName="identityType">
                         <option value="">select Identity Proof</option>
-                        <option value="1">Aadhar Card</option>
-                        <option value="2">Pan Card</option>
-                        <option value="4">Other</option>
+                        <option value="aadharCard">Aadhar Card</option>
+                        <option value="panCard">Pan Card</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
             </div>
@@ -90,10 +93,10 @@
                     <input type="text" class="form-control" id="cardno" formControlName="cardno">
                 </div>
             </div>
-            <div style="display: flex; justify-content: center; margin-top: 20px;">
-                <button type="reset" class="btn btn-danger">Reset Form</button>
-                <button type="submit" class="btn btn-success mx-3">Submit Form</button>
-            </div>
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 20px;">
+            <button type="reset" class="btn btn-danger">Reset Form</button>
+            <button type="submit" class="btn btn-success mx-3">Submit Form</button>
         </div>
     </form>
 </section>
